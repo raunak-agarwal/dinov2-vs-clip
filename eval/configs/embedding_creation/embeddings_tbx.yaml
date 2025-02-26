@@ -1,0 +1,26 @@
+# For DINO models only
+dino_config: "dino_vitb16_config.yaml"
+dino_model_path: "training_99999.pth"
+
+# For CLIP models only
+clip_config: "cxr-bert-custom-vit.json" 
+clip_model_path: "cxr-bert-epoch_50.pt" 
+clip_model_name: "cxrclip_local"  
+
+# Dataset settings
+finetune_dataset: "tbx11k"  # Dataset name that matches one in dataloaders.py
+image_dir: "tbx11k/"
+label_file: "tbx11k/tbx11k-merged.csv"
+
+# Optional dataset settings
+drop_columns: null  # Columns to drop, separate multiple with ";"
+sampling_ratio: null  # Optional: fraction of data to sample
+min_samples_per_label: null  # Optional: minimum samples per label when sampling
+
+batch_size: 32  # Batch size for data loading
+num_workers: 12  # Number of workers for data loading
+output_dir: "embeddings/tbx11k-embeddings"  # Directory to save embeddings
+
+dino_or_clip: "both"  # Can be "dino", "clip", or "both"
+
+get_intermediate_layers: false  # Whether to get intermediate layers

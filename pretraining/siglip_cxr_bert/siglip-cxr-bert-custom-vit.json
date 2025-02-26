@@ -1,0 +1,31 @@
+{
+  "model_cfg": {
+    "embed_dim": 768,
+    "init_logit_bias": -10,
+    "custom_text": true,
+    "vision_cfg": {
+      "image_size": 224,
+      "timm_model_name": "vit_base_patch16_224",
+      "timm_model_pretrained": false,
+      "timm_proj": "mlp",
+      "timm_drop_path": 0.1
+    },
+    "text_cfg": {
+      "hf_model_name": "microsoft/BiomedVLP-CXR-BERT-general",
+      "hf_tokenizer_name": "microsoft/BiomedVLP-CXR-BERT-general",
+      "hf_pooler_type": "mean_pooler"
+    }
+  },
+  "preprocess_cfg": {
+    "mean": [
+      0.4958348274,
+      0.4958348274,
+      0.4958348274
+    ],
+    "std": [
+      0.2771022319,
+      0.2771022319,
+      0.2771022319
+    ]
+  }
+}

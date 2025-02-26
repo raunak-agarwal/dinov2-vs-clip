@@ -1,0 +1,14 @@
+model_path: "training_99999.pth"
+dino_or_clip: "dino" # "dino" or "clip"
+
+image_dir: "vindr-cxr-eval/images_eval"
+finetune_dataset: "vindr-cxr"
+label_file: "vindr-cxr-eval/vin-dr-cxr-merged.csv"
+num_classes: 26
+multilabel: True
+drop_columns: "No finding"
+
+normalize: False
+
+embeddings_path: "vindr-cxr_dino_embeddings.npy"
+num_workers: 12

@@ -1,0 +1,40 @@
+wandb_project: "dino-mimic"
+run_name: "clip-mldecoder-bce-1e-5"
+# seed: 1234
+
+batch_size: 100 # 100 for full finetune
+num_epochs: 15
+warmup_epochs: 2
+dropout_rate: 0.1  # 0.1 or 0.05 according to https://arxiv.org/pdf/2106.10270
+learning_rate: 1e-5  # 2e-3 or 3e-4 or 3e-5
+weight_decay: 1e-5  # 0 or 0.1 or (0.01 in chexfusion) or 0.03 according to https://arxiv.org/pdf/2106.10270
+model_path: "cxr-bert-epoch_50.pt"
+
+image_dir: "mimic/"
+finetune_dataset: "mimic"
+label_file: "mimic/mimic-cxr-2.0.0-merged-with-paths.csv"
+num_classes: 14
+multilabel: True
+
+classification_head: "MLDecoder" # "linear" or "MLDecoder"
+freeze: "freeze_all"  # 'freeze_all', 'freeze_some', or 'freeze_none'
+layers: 4
+latent_len: 0
+outpath: "vit_mimic.pth"
+
+loss: "bce" # "w-asl", "asl", "bce", "wbce", "DBLoss"
+pool: None # "AttentionPoolLatent" or None
+pool_avg: True # True or False 
+
+use_timm_vit: False
+imagenet_pretrained_timm_vit: False
+
+use_simple_vit: False
+use_lora: False
+dino_or_clip: "clip" # "dino" or "clip"
+
+num_workers: 12
+compile: True
+no_transform: True
+#sampling_ratio: 0.1
+#min_samples_per_label: 5

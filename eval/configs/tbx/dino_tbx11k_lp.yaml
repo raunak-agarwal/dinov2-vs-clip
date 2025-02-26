@@ -1,0 +1,33 @@
+wandb_project: "tbx11k"
+run_name: "lp-linear-wbce-3e-5"
+seed: 1234
+
+batch_size: 4000 # 100 for full finetune
+num_epochs: 20
+warmup_epochs: 3
+dropout_rate: 0.1  # 0.1 or 0.05 according to https://arxiv.org/pdf/2106.10270
+learning_rate: 5e-4  # 2e-3 or 3e-4 or 3e-5
+weight_decay: 1e-5  # 0 or 0.1 or (0.01 in chexfusion) or 0.03 according to https://arxiv.org/pdf/2106.10270
+model_path: "dinov2/checkpoints/dinov2-vitb16-all/eval/training_99999/teacher_checkpoint.pth"
+
+image_dir: "tbx11k/"
+finetune_dataset: "tbx11k"
+label_file: "tbx11k/tbx11k-merged.csv"
+num_classes: 3
+multilabel: False
+
+classification_head: "linear" # "linear" or "MLDecoder"
+freeze: "freeze_all"  # 'freeze_all', 'freeze_some', or 'freeze_none'
+layers: 4
+latent_len: 0
+outpath: "vit_tbx11k_linear_probe.pth"
+
+loss: "wbce" # "w-asl", "asl", "bce", "wbce", "DBLoss"
+pool: None # "AttentionPoolLatent" or None
+pool_avg: True # True or False 
+
+use_timm_vit: False
+use_simple_vit: False
+dino_or_clip: "dino" # "dino" or "clip"
+
+num_workers: 12

@@ -1,0 +1,14 @@
+wandb_project: "tbx11k"
+run_name: "lp-linear-wbce-3e-5"
+
+model_path: "training_99999.pth"
+dino_or_clip: "dino" # "dino" or "clip"
+
+image_dir: "tbx11k/"
+finetune_dataset: "tbx11k"
+label_file: "tbx11k/tbx11k-merged.csv"
+num_classes: 3
+multilabel: False
+
+outpath: "tbx11k_embeddings.npy"
+num_workers: 12
